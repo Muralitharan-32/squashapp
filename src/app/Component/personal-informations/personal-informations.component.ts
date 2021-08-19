@@ -17,15 +17,18 @@ export class PersonalInformationsComponent implements OnInit {
  country = [
   {
     name: 'India',
-    code: '+91'
+    code: '+91',
+    sh:'IN'
   },
   {
-    name: 'Ameria',
-    code: '+80'
+    name: 'America',
+    code: '+80',
+    sh:'USA'
   },
   {
-    name: 'London',
-    code: '+43'
+    name: 'Europe',
+    code: '+43',
+    sh:'EU'
   }
  ]
  @Output() myOutput: EventEmitter<Number>= new EventEmitter
