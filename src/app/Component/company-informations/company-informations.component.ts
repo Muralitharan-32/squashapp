@@ -22,6 +22,17 @@ export class CompanyInformationsComponent implements OnInit {
 
   ngOnInit() {
     console.log(localStorage.getItem("companyForm"))
+    if(localStorage.getItem("companyForm")) {
+      const data=JSON.parse(localStorage.getItem("companyForm"))
+      this.companyForm = new FormGroup({
+        companyName: new FormControl(data.companyName, Validators.required),
+        image: new FormControl(data.image, Validators.required),
+        eMail: new FormControl(data.eMail, Validators.required),
+        jobTitle: new FormControl(data.jobTitle, Validators.required),
+        jobExperience: new FormControl(data. jobExperience, Validators.required)
+       })
+       this.imagePreview=this.companyForm.value.image
+       }
   }
   sendotp() {
     console.log(this.companyForm.value)

@@ -38,6 +38,16 @@ export class PersonalInformationsComponent implements OnInit {
 
   ngOnInit() {
     console.log(localStorage.getItem("personalForm"));
+    if (localStorage.getItem('personalForm')) {
+      const data = JSON.parse(localStorage.getItem('personalForm'));
+      this.personalForm = new FormGroup({
+        fullName: new FormControl(data.fullName, Validators.required),
+        gender: new FormControl(data.gender, Validators.required),
+        country: new FormControl(data.country, Validators.required),
+        state: new FormControl(data.state, Validators.required),
+        phoneNumber: new FormControl(data.phoneNumber, Validators.required)
+      })
+    }
     this.countrySh = this.country[0].sh;
     this.code = this.country[0].code;
   }

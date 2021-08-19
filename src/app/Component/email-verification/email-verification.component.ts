@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
-import { FormGroup, FormControl  } from '@angular/forms';
+import { FormGroup, FormControl, Validators  } from '@angular/forms';
 @Component({
   selector: 'app-email-verification',
   templateUrl: './email-verification.component.html',
@@ -7,11 +7,11 @@ import { FormGroup, FormControl  } from '@angular/forms';
 })
 export class EmailVerificationComponent implements OnInit {
   emailForm = new FormGroup({
-    number1: new FormControl(''),
-    number2: new FormControl(''),
-    number3: new FormControl(''),
-    number4: new FormControl(''),
-    number5: new FormControl('')
+    number1: new FormControl('', Validators.required),
+    number2: new FormControl('', Validators.required),
+    number3: new FormControl('', Validators.required),
+    number4: new FormControl('', Validators.required),
+    number5: new FormControl('', Validators.required)
     })
     otp="";
     @Output() myOutput: EventEmitter<Number>= new EventEmitter
